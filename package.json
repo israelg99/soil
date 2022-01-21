@@ -1,7 +1,7 @@
 {
-  "name": "soil",
+  "name": "@israelg99/soil",
   "description": "CDK Constructs Library",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
