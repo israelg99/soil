@@ -2,12 +2,11 @@ import {
     PythonFunction,
     PythonFunctionProps,
 } from '@aws-cdk/aws-lambda-python-alpha';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import { ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import * as policy from 'cdk-iam-floyd';
 import { Construct } from 'constructs';
 import { setID } from '../util';
-import * as policy from 'cdk-iam-floyd';
-import * as iam from 'aws-cdk-lib/aws-iam';
-import { ServiceProps } from './';
 
 export interface LambdaProps extends PythonFunctionProps {
     account: string;

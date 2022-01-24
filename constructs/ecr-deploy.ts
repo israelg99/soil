@@ -1,6 +1,6 @@
-import { Repository, IRepository } from 'aws-cdk-lib/aws-ecr';
-import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
 import { RemovalPolicy } from 'aws-cdk-lib';
+import { IRepository, Repository } from 'aws-cdk-lib/aws-ecr';
+import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
 import * as ecrDeploy from 'cdk-ecr-deployment';
 import { Construct } from 'constructs';
 

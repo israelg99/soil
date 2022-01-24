@@ -1,4 +1,4 @@
-import { RemovalPolicy, Stack, Arn } from 'aws-cdk-lib';
+import { Arn, Stack } from 'aws-cdk-lib';
 import {
     ContainerDefinitionOptions,
     ContainerImage,
@@ -6,10 +6,9 @@ import {
     FargateTaskDefinitionProps,
     LogDriver,
 } from 'aws-cdk-lib/aws-ecs';
-import { ImageDeploy } from '../constructs';
 import { IRole, Role } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
-import { TaskRole, Parameter } from '../role';
+import { ImageDeploy } from '../constructs';
 
 export interface ImageTaskDefinitionProps
     extends Omit<ContainerDefinitionOptions, 'image'> {

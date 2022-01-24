@@ -1,12 +1,6 @@
-import { Vpc } from 'aws-cdk-lib/aws-ec2';
-import {
-    Cluster,
-    FargateService,
-    FargateTaskDefinition,
-} from 'aws-cdk-lib/aws-ecs';
-import { DnsRecordType, NamespaceType } from 'aws-cdk-lib/aws-servicediscovery';
+import { FargateTaskDefinition } from 'aws-cdk-lib/aws-ecs';
 import { Construct } from 'constructs';
-import { ServiceProps, Service } from './';
+import { Service } from './';
 
 export interface ServicesProps {
     definition: FargateTaskDefinition;
@@ -18,9 +12,11 @@ export class Services extends Construct {
     constructor(scope: Construct, id: string, props: ServicesProps) {
         super(scope, id);
 
+        const name = props.name || this.node.tryGetContext('service');
+
         for (let i = 0; i < (props.count || 1); i++) {
             new Service(this, `Service${i}`, {
-                name: `${props.name}-${i}`,
+                name: `${name}-${i}`,
                 definition: props.definition,
             });
         }

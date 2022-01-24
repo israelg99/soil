@@ -1,6 +1,5 @@
-import { Construct } from 'constructs';
 import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
-import * as path from 'path';
+import { Construct } from 'constructs';
 import { EcrDeploy } from './';
 
 export interface ImageDeployProps {
@@ -13,7 +12,7 @@ export class ImageDeploy extends Construct {
     constructor(scope: Construct, id: string, props?: ImageDeployProps) {
         super(scope, id);
         const image = new DockerImageAsset(this, 'Image', {
-            directory: path.join(__dirname, `../${props?.path || ''}`),
+            directory: props?.path || '',
         });
 
         this.ecr = new EcrDeploy(this, 'EcrDeploy', {

@@ -1,4 +1,4 @@
-import { Vpc, SecurityGroup } from 'aws-cdk-lib/aws-ec2';
+import { Vpc } from 'aws-cdk-lib/aws-ec2';
 import {
     Cluster,
     FargateService,
